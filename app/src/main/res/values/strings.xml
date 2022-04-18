@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">JS-RecyclerView</string>
+    <string name="connection_timeout">Connection to server timeout</string>
+    <string name="comments">Comments</string>
+    <string name="post_detail">Post Detail</string>
+    <string name="user_detail">User Detail</string>
+    <string name="photo_detail">Photo Detail</string>
+    <string name="address">Address</string>
+    <string name="street">Street</string>
+    <string name="suite">Suite</string>
+    <string name="city">City</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="company">Company</string>
+    <string name="company_name">Name</string>
+    <string name="catch_phrase">Catch Phrase</string>
+    <string name="bs">Bs</string>
+    <string name="album">Album</string>
+</resources>

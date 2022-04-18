@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shimmer="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_general" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_detail_posts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:background="@color/colorBackground">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_detail_posts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        shimmer:duration="800">
+
+                        <include layout="@layout/item_detail_posts_placeholder" />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_detail_posts"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/textview_posts_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:textColor="@color/colorBlackSoft"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textview_posts_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_below="@+id/textview_posts_title"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="start|center"
+                            android:textColor="@color/colorBlackSoft"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textview_posts_body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textview_posts_name"
+                            android:layout_gravity="start|center"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="15dp"
+                            android:textColor="@color/colorBlackSoft"
+                            android:textSize="14sp" />
+
+                        <RelativeLayout
+                            android:id="@+id/relative_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textview_posts_body"
+                            android:layout_marginTop="40dp">
+
+                            <View
+                                android:id="@+id/view_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@color/line" />
+
+                            <TextView
+                                android:id="@+id/textview_comments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view_line"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="15dp"
+                                android:gravity="start"
+                                android:text="@string/comments"
+                                android:textColor="@color/colorBlackSoft"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler_comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/textview_comments"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="10dp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+</layout>

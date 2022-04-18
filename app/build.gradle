@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk rootProject.ext.compileSdkVersion
+
+    dataBinding {
+        android.buildFeatures.dataBinding = true
+    }
+
+    defaultConfig {
+        applicationId "com.jagoanstudio.app"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //App Dependencies
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlinVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ext.androidxCoreKtx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxAppcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.androidxConstraintlayout"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.androidxLifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.androidxLifecycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.androidxLifecycle"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$rootProject.ext.androidxSwiperefreshlayout"
+    implementation "com.google.android.material:material:$rootProject.ext.googleMaterial"
+    testImplementation "junit:junit:$rootProject.ext.junit"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.androidxJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.androidxEspressoCore"
+
+    //Fast Android Networking
+    implementation "com.amitshekhar.android:android-networking:$rootProject.ext.androidNetworking"
+    implementation "com.loopj.android:android-async-http:$rootProject.ext.androidAsyncHttp"
+
+    //Okhttp
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3Okhttp"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.ext.okhttp3OkhttpUrl"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3OkhttpLog"
+
+    //Java 1.8 Support For Lambda
+    implementation "android.arch.lifecycle:common-java8:$rootProject.ext.commonJava8"
+
+    //View Model And Live Data
+    implementation "android.arch.lifecycle:extensions:$rootProject.ext.androidLifecycle"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.ext.androidLifecycle"
+    implementation "android.arch.lifecycle:runtime:$rootProject.ext.androidLifecycle"
+
+    //Facebook Shimmer
+    implementation "com.facebook.shimmer:shimmer:$rootProject.ext.facebookShimmer"
+
+    //Image Zoom
+    implementation "com.davemorrissey.labs:subsampling-scale-image-view:$rootProject.ext.subsamplingScale"
+
+    //Text Drawable
+    implementation "com.amulyakhare:com.amulyakhare.textdrawable:$rootProject.ext.textDrawable"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$rootProject.ext.picasso"
+}
